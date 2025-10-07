@@ -1,0 +1,252 @@
+# =============================
+# Global project .gitignore
+# Stack: Python (FastAPI, sentence-transformers), n8n workflows, Docker compose
+# Adjust / uncomment sections as needed.
+# =============================
+
+###############################
+# Python bytecode / build
+###############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+###############################
+# Virtual environments
+###############################
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+###############################
+# Tool caches / test artifacts
+###############################
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+/.benchmarks/
+profiler.out
+
+###############################
+# Jupyter / notebooks
+###############################
+*.ipynb_checkpoints/
+
+###############################
+# Editors / IDE
+###############################
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+###############################
+# OS / misc
+###############################
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+
+###############################
+# Logs & runtime outputs
+###############################
+*.log
+logs/
+self-hosted-ai-starter-kit/logs/
+self-hosted-ai-starter-kit/logs/queries/*.json
+api.out
+self-hosted-ai-starter-kit/api.out
+
+###############################
+# Credentials / sensitive (n8n imported credentials)
+###############################
+self-hosted-ai-starter-kit/n8n/demo-data/credentials/*.json
+
+# If you want to keep example credential schema, create a placeholder file and whitelist it.
+# !self-hosted-ai-starter-kit/n8n/demo-data/credentials/README.keep
+
+###############################
+# n8n ephemeral storage (mounted volume path if ever added locally)
+###############################
+n8n_storage/
+
+###############################
+# Model / embedding / vector cache (typical locations if created locally)
+###############################
+/.cache/
+cache/
+sentence_transformers/
+hf_cache/
+model_cache/
+.ollama/
+
+###############################
+# Qdrant / DB snapshots (volumes live outside repo, ignore any accidental paths)
+###############################
+qdrant_storage/
+*.db
+*.sqlite
+*.sqlite3
+
+###############################
+# Node / frontend (if later added)
+###############################
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+###############################
+# Environment & compose overrides
+###############################
+.env
+*.env.local
+docker-compose.override.yml
+
+###############################
+# Temporary / scratch
+###############################
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+*.rej
+
+###############################
+# PDF Knowledge base (OPTIONAL)
+# Uncomment following lines if you do NOT want to version source PDFs.
+# knowledge_base/*.pdf
+
+###############################
+# Generated embeddings / ingestion artifacts (if you later export them)
+###############################
+embeddings/*.json
+embeddings/*.npy
+
+###############################
+# Python packaging extras (future)
+###############################
+MANIFEST
+MANIFEST.in
+
+###############################
+# Archive files
+###############################
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+###############################
+# End of file
+################################ === Python general ===
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+.envrc
+.python-version
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+.wheel/
+
+# PyInstaller
+*.spec
+
+# Logs & runtime artifacts
+*.log
+logs/
+self-hosted-ai-starter-kit/logs/
+*.out
+nohup.out
+
+# Cache
+.cache/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# OS / misc
+*.bak
+*.tmp
+~$*
+
+# Node / frontend (if any future UI)
+node_modules/
+
+# n8n specific
+self-hosted-ai-starter-kit/n8n/demo-data/credentials/*.json
+self-hosted-ai-starter-kit/n8n/.n8n/*
+!self-hosted-ai-starter-kit/n8n/demo-data/workflows/*.json
+
+# Docker volumes (do NOT commit persistent runtime data)
+qdrant_storage/
+ollama_storage/
+postgres_storage/
+n8n_storage/
+
+# Model / embedding caches
+huggingface/
+HF_HOME/
+.cache/huggingface/
+
+# Large binary knowledge base (optional): comment out if you want PDFs versioned
+knowledge_base/*.pdf
+
+# Environment files
+.env
+.env.*
+
+# Python tooling outputs
+coverage/
+.coverage*
+htmlcov/
+
+# Security / secrets placeholder
+secrets*/
+
+# Temporary evaluation artifacts
+self-hosted-ai-starter-kit/api.out
+self-hosted-ai-starter-kit/scripts/__pycache__/
+
+# Ignore any local test scripts not in repo plan
+local_*.py
+scratch*/
