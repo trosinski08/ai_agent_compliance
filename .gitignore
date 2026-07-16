@@ -250,3 +250,6 @@ self-hosted-ai-starter-kit/scripts/__pycache__/
 # Ignore any local test scripts not in repo plan
 local_*.py
 scratch*/
+
+# Template for .env — should be tracked
+!.env.example
